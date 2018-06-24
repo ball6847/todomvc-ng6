@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Todo } from './todo';
-import { TodoDataService } from './todo-data.service';
+import { TODO_SERVICE_PROVIDER } from './tokens';
 
 // add comments
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [TodoDataService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   newTodo: Todo = new Todo();
 
-  constructor(private todoDataService: TodoDataService) {}
+  constructor(@Inject(TODO_SERVICE_PROVIDER) private todoDataService) {}
 
   addTodo() {
     this.todoDataService.addTodo(this.newTodo);

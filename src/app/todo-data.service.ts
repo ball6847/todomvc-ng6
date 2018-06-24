@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
+import { TodoDataServiceInterface } from './interfaces';
 import { Todo } from './todo';
 
 @Injectable()
-export class TodoDataService {
+export class TodoDataService implements TodoDataServiceInterface {
   // Placeholder for last id so we can simulate
   // automatic incrementing of id's
   lastId = 0;
